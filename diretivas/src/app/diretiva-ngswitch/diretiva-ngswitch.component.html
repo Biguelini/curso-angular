@@ -1,0 +1,19 @@
+<nav class="navbar navbar-light bg-light">
+
+
+  <div class="nav navbar-nav">
+    <a class="nav-item nav-link" [class.active]="aba=='home'"
+      (click)="aba='home'">Features</a>
+    <a class="nav-item nav-link" [class.active]="aba=='preco'"
+      (click)="aba='preco'">Pricing</a>
+    <a class="nav-item nav-link" [class.active]="aba=='lista'"
+      (click)="aba='lista'">Disabled</a>
+  </div>
+</nav>
+
+
+<div class="container" [ngSwitch]="aba">
+  <p *ngSwitchCase="'preco'">Modo Preco</p>
+  <p *ngSwitchCase="'lista'">Modo Lista</p>
+  <p *ngSwitchDefault>Modo Home</p>
+</div>

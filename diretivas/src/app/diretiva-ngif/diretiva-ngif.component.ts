@@ -12,3 +12,4 @@ export class DiretivaNgifComponent {
     this.mostrarCursos = !this.mostrarCursos
   }
 }
+
