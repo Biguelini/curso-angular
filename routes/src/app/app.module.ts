@@ -7,9 +7,12 @@ import { LoginComponent } from './login/login.component';
 import { CursosService } from './cursos/cursos.service';
 
 import { AppRoutingModule } from './app.routing.module';
+import { AuthService } from './login/auth.service';
+import { FormsModule } from '@angular/forms';
+import { AuthGuard } from './guards/auth.guard';
+import { CursoGuard } from './guards/cursos.guard';
+import { AlunosGuard } from './guards/alunos.guard';
 
-import { CursosModule } from './cursos/cursos.module';
-import { AlunosModule } from './alunos/alunos.module';
 
 @NgModule({
   declarations: [
@@ -20,11 +23,10 @@ import { AlunosModule } from './alunos/alunos.module';
   ],
   imports: [
     BrowserModule,
-    CursosModule,
-    AlunosModule,
-    AppRoutingModule
+    FormsModule,
+    AppRoutingModule,
   ],
-  providers: [CursosService],
+  providers: [CursosService, AuthService, AuthGuard, CursoGuard, AlunosGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

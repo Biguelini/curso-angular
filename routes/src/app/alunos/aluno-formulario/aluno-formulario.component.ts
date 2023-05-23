@@ -27,23 +27,23 @@ export class AlunoFormularioComponent implements OnInit {
 
         this.aluno = this.alunosService.getAluno(id);
 
-        if (this.aluno === null){
+        if (this.aluno === null) {
           this.aluno = {};
         }
       }
     );
   }
 
-  ngOnDestroy(){
+  ngOnDestroy() {
     this.inscricao.unsubscribe();
   }
 
-  onInput(){
+  onInput() {
     this.formMudou = true;
     console.log('mudou');
   }
 
-  podeMudarRota(){
+  podeMudarRota() {
 
     if (this.formMudou) {
       confirm('Tem certeza que deseja sair dessa página?');
@@ -53,7 +53,7 @@ export class AlunoFormularioComponent implements OnInit {
 
   }
 
-  podeDesativar(){
+  podeDesativar() {
     return this.podeMudarRota();
   }
 

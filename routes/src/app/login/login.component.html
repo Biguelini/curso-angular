@@ -1,1 +1,16 @@
-<p>login works!</p>
+<h5>Login</h5>
+
+<div class="row">
+  <div class="input-field col s12">
+    <input [(ngModel)]="usuario.nome" id="usuario" type="text" class="validate">
+    <label class="active" for="usuario">Usuário</label>
+  </div>
+  <div class="input-field col s12">
+    <input [(ngModel)]="usuario.senha" id="senha" type="password"
+      class="validate">
+    <label class="active" for="senha">Senha</label>
+  </div>
+</div>
+
+<a class="waves-effect waves-light btn" type="submit" name="action"
+  (click)="fazerLogin()">Enviar </a>
