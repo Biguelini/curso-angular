@@ -1,6 +1,7 @@
 import { Component } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
 import { map } from 'rxjs/operators'
+import { ConsultaCepService } from '../shared/services/consulta-cep.service'
 
 @Component({
   selector: 'app-template-form',
@@ -8,13 +9,13 @@ import { map } from 'rxjs/operators'
   styleUrls: ['./template-form.component.css']
 })
 export class TemplateFormComponent {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private cepService: ConsultaCepService) { }
   usuario: any = {
     nome: "",
     email: ""
   }
   onSubmit(form: any) {
-    this.http.post('https://httpbin.org/post', JSON.stringify(form.value)).pipe(map((res) => res)).subscribe(dados => {console.log(dados), form.form.reset()})
+    this.http.post('https://httpbin.org/post', JSON.stringify(form.value)).pipe(map((res) => res)).subscribe(dados => { console.log(dados), form.form.reset() })
   }
   verificaValidTouched(campo: any) {
     return !campo.valid && campo.touched
@@ -50,21 +51,9 @@ export class TemplateFormComponent {
     })
 
   }
-  consultaCEP(cep: string, form: any) {
-    cep = cep.replace(/\D/g, '')
-
-    if (cep != "") {
-
-      var validacep = /^[0-9]{8}$/
-
-      if (validacep.test(cep)) {
-        this.resetaDadosForm(form)
-        this.http.get(`//viacep.com.br/ws/${cep}/json/`)
-          .pipe(map((dados: any) => dados))
-          .subscribe(dados => this.populaDadosForm(dados, form))
-      }
-    }
-
+  consultaCEP(cep: any, form: any) {
+    this.cepService.consultaCep(cep, this.resetaDadosForm, form)
+      .subscribe((dados: any) => this.populaDadosForm(dados, form));
   }
 
 
