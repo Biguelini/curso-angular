@@ -1,5 +1,5 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http'
+import { Injectable } from '@angular/core'
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +17,7 @@ export class ConsultaCepService {
       var validacep = /^[0-9]{8}$/
 
       if (validacep.test(cep)) {
-        resetaFormCallback(formulario);
+        resetaFormCallback(formulario)
 
         return this.http.get(`//viacep.com.br/ws/${cep}/json/`)
 

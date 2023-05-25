@@ -53,7 +53,7 @@ export class TemplateFormComponent {
   }
   consultaCEP(cep: any, form: any) {
     this.cepService.consultaCep(cep, this.resetaDadosForm, form)
-      .subscribe((dados: any) => this.populaDadosForm(dados, form));
+      .subscribe((dados: any) => this.populaDadosForm(dados, form))
   }
 
 
