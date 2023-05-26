@@ -8,6 +8,8 @@ import { FormValidations } from '../shared/form-validations'
 import { VerificaEmailService } from './services/verifica-email.service'
 import { empty } from 'rxjs'
 import { BaseFormComponent } from '../shared/base-form/base-form.component'
+import { EstadoBr } from '../shared/models/estado-br'
+import { Cidade } from '../shared/models/cidade'
 
 @Component({
   selector: 'app-data-form',
@@ -21,10 +23,11 @@ export class DataFormComponent extends BaseFormComponent implements OnInit {
   cargos!: any
   tecnologias!: any
   newsletterOp: any
+  cidades!: Cidade[]
   frameworks = ['Angular', 'React', 'Vue', 'Sencha']
   constructor(private formBuilder: FormBuilder, private cepService: ConsultaCepService, private http: HttpClient, private dropDownService: DropdownService, private verificaEmailService: VerificaEmailService) { super() }
   ngOnInit() {
-    this.estados = this.dropDownService.getEstadoBr()
+    this.dropDownService.getEstadoBr().subscribe(dados => this.estados = dados)
     this.cargos = this.dropDownService.getCargos()
     this.tecnologias = this.dropDownService.getTecnologias()
     this.newsletterOp = this.dropDownService.getNewsletter()
@@ -56,6 +59,13 @@ export class DataFormComponent extends BaseFormComponent implements OnInit {
         )
       )
       .subscribe(dados => dados ? this.populaDadosForm(dados) : {})
+    this.formulario.get('endereco.estado')?.valueChanges.pipe(
+      tap(estado => console.log(estado)),
+      map(estado => this.estados.filter((e: any) => e.sigla === estado)),
+      map(estados => estados && estados.length > 0 ? estados[0].id : empty()),
+      switchMap(estadoId => this.dropDownService.getCidades(estadoId)),
+      tap(console.log)
+    ).subscribe(cidades => this.cidades = cidades)
 
 
   }
