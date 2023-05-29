@@ -1,7 +1,7 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core'
+import { CommonModule } from '@angular/common'
 
-import { UploadFileRoutingModule } from './upload-file-routing.module';
+import { UploadFileRoutingModule } from './upload-file-routing.module'
 
 
 @NgModule({

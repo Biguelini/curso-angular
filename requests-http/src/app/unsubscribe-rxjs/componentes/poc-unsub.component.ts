@@ -1,6 +1,6 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { EnviarValorService } from '../enviar-valor.service';
-import { Subscription } from 'rxjs';
+import { Component, OnInit, OnDestroy } from '@angular/core'
+import { EnviarValorService } from '../enviar-valor.service'
+import { Subscription } from 'rxjs'
 
 @Component({
   selector: 'app-poc-unsub',
@@ -12,8 +12,8 @@ import { Subscription } from 'rxjs';
 })
 export class PocUnsubComponent implements OnInit, OnDestroy {
 
-  nome = 'Componente com unsubscribe';
-  valor!: string;
+  nome = 'Componente com unsubscribe'
+  valor!: string
   sub!: Subscription
 
   constructor(private service: EnviarValorService) { }

@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { CursosService } from '../cursos.service';
-import { AlertModalService } from 'src/app/shared/alert-modal.service';
-import { Location } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
-import { map, switchMap } from 'rxjs';
+import { Component, OnInit } from '@angular/core'
+import { FormBuilder, FormGroup, Validators } from '@angular/forms'
+import { CursosService } from '../cursos.service'
+import { AlertModalService } from 'src/app/shared/alert-modal.service'
+import { Location } from '@angular/common'
+import { ActivatedRoute } from '@angular/router'
+import { map, switchMap } from 'rxjs'
 
 @Component({
   selector: 'app-cursos-form',

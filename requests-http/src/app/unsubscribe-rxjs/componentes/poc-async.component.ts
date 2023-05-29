@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { EnviarValorService } from '../enviar-valor.service';
-import { tap } from 'rxjs/operators';
+import { Component, OnInit } from '@angular/core'
+import { EnviarValorService } from '../enviar-valor.service'
+import { tap } from 'rxjs/operators'
 
 @Component({
   selector: 'app-poc-async',
@@ -12,8 +12,8 @@ import { tap } from 'rxjs/operators';
 })
 export class PocAsyncComponent implements OnInit {
 
-  nome = 'Componente com async';
-  valor!: any;
+  nome = 'Componente com async'
+  valor!: any
 
   constructor(private service: EnviarValorService) { }
 

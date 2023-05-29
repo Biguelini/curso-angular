@@ -1,6 +1,6 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { EnviarValorService } from '../enviar-valor.service';
-import { tap, take } from 'rxjs/operators';
+import { Component, OnDestroy, OnInit } from '@angular/core'
+import { EnviarValorService } from '../enviar-valor.service'
+import { tap, take } from 'rxjs/operators'
 
 @Component({
   selector: 'app-poc-take',
@@ -12,8 +12,8 @@ import { tap, take } from 'rxjs/operators';
 })
 export class PocTakeComponent implements OnInit, OnDestroy {
 
-  nome = 'Componente com take';
-  valor!: string;
+  nome = 'Componente com take'
+  valor!: string
 
   constructor(private service: EnviarValorService) { }
 

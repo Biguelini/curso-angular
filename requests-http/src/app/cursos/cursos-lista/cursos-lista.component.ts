@@ -1,10 +1,10 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { Curso } from '../cursos';
-import { EMPTY, Observable, Subject, catchError, empty, switchMap, take } from 'rxjs';
-import { BsModalRef } from 'ngx-bootstrap/modal';
-import { AlertModalService } from 'src/app/shared/alert-modal.service';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Cursos2Service } from '../cursos2.service';
+import { Component, OnInit, ViewChild } from '@angular/core'
+import { Curso } from '../cursos'
+import { EMPTY, Observable, Subject, catchError, empty, switchMap, take } from 'rxjs'
+import { BsModalRef } from 'ngx-bootstrap/modal'
+import { AlertModalService } from 'src/app/shared/alert-modal.service'
+import { ActivatedRoute, Router } from '@angular/router'
+import { Cursos2Service } from '../cursos2.service'
 
 @Component({
   selector: 'app-cursos-lista',
@@ -12,8 +12,8 @@ import { Cursos2Service } from '../cursos2.service';
   preserveWhitespaces: true
 })
 export class CursosListaComponent implements OnInit {
-  deleteModalRef!: BsModalRef;
-  cursos!: Observable<Curso[]>;
+  deleteModalRef!: BsModalRef
+  cursos!: Observable<Curso[]>
   error = new Subject<boolean>()
   cursoSelecionado!: Curso
   @ViewChild('deleteModal') deleteModal: any
@@ -41,10 +41,10 @@ export class CursosListaComponent implements OnInit {
   }
 
   onDelete(curso: any) {
-    this.cursoSelecionado = curso;
-    // this.deleteModalRef = this.modalService.show(this.deleteModal, { class: 'modal-sm' });
+    this.cursoSelecionado = curso
+    // this.deleteModalRef = this.modalService.show(this.deleteModal, { class: 'modal-sm' })
 
-    const result$ = this.alertService.showConfirm('Confirmacao', 'Tem certeza que deseja remover esse curso?');
+    const result$ = this.alertService.showConfirm('Confirmacao', 'Tem certeza que deseja remover esse curso?')
     result$.asObservable()
       .pipe(
         take(1),
@@ -52,29 +52,29 @@ export class CursosListaComponent implements OnInit {
       )
       .subscribe(
         success => {
-          this.onRefresh();
+          this.onRefresh()
         },
         error => {
-          this.alertService.showAlertDanger('Erro ao remover curso. Tente novamente mais tarde.');
+          this.alertService.showAlertDanger('Erro ao remover curso. Tente novamente mais tarde.')
         }
-      );
+      )
   }
 
   onConfirmDelete() {
     this.service.remove(this.cursoSelecionado.id)
       .subscribe(
         (success: any) => {
-          this.onRefresh();
-          this.deleteModalRef.hide();
+          this.onRefresh()
+          this.deleteModalRef.hide()
         },
         (error: any) => {
-          this.alertService.showAlertDanger('Erro ao remover curso. Tente novamente mais tarde.');
-          this.deleteModalRef.hide();
+          this.alertService.showAlertDanger('Erro ao remover curso. Tente novamente mais tarde.')
+          this.deleteModalRef.hide()
         }
-      );
+      )
   }
 
   onDeclineDelete() {
-    this.deleteModalRef.hide();
+    this.deleteModalRef.hide()
   }
 }

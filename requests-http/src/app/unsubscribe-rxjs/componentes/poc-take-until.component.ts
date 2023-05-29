@@ -1,7 +1,7 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { EnviarValorService } from '../enviar-valor.service';
-import { tap, takeUntil } from 'rxjs/operators';
-import { Subject } from 'rxjs';
+import { Component, OnInit, OnDestroy } from '@angular/core'
+import { EnviarValorService } from '../enviar-valor.service'
+import { tap, takeUntil } from 'rxjs/operators'
+import { Subject } from 'rxjs'
 
 @Component({
   selector: 'app-poc-take-until',
@@ -13,8 +13,8 @@ import { Subject } from 'rxjs';
 })
 export class PocTakeUntilComponent implements OnInit, OnDestroy {
 
-  nome = 'Componente com takeUntil';
-  valor!: string;
+  nome = 'Componente com takeUntil'
+  valor!: string
   unsub = new Subject()
 
   constructor(private service: EnviarValorService) { }

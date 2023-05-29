@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core'
 
 @Component({
   selector: 'app-poc-base',
@@ -6,9 +6,9 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class PocBaseComponent implements OnInit {
 
-  @Input() nome!: string;
-  @Input() valor!: any;
-  @Input() estilo!: string;
+  @Input() nome!: string
+  @Input() valor!: any
+  @Input() estilo!: string
 
   constructor() { }
 

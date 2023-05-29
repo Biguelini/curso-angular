@@ -12,7 +12,7 @@
   </div>
   <div class="card-body">
     <table class="table table-hover"
-      *ngIf="cursos | async as cursosLoaded ;else loading">
+      *ngIf="cursos | async as cursosLoaded else loading">
       <thead>
         <tr>
           <th>#</th>

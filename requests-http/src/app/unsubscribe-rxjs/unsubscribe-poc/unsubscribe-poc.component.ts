@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { EnviarValorService } from '../enviar-valor.service';
+import { Component, OnInit } from '@angular/core'
+import { EnviarValorService } from '../enviar-valor.service'
 
 @Component({
   selector: 'app-unsubscribe-poc',
@@ -8,7 +8,7 @@ import { EnviarValorService } from '../enviar-valor.service';
 })
 export class UnsubscribePocComponent implements OnInit {
 
-  mostrarComponentes = true;
+  mostrarComponentes = true
 
   constructor(private service: EnviarValorService) { }
 
@@ -20,7 +20,7 @@ export class UnsubscribePocComponent implements OnInit {
   }
 
   destruirComponentes() {
-    this.mostrarComponentes = !this.mostrarComponentes;
+    this.mostrarComponentes = !this.mostrarComponentes
   }
 
 }

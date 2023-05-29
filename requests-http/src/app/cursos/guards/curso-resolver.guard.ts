@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot, UrlTree } from '@angular/router';
-import { Observable, of } from 'rxjs';
-import { Curso } from '../cursos';
-import { CursosService } from '../cursos.service';
+import { Injectable } from '@angular/core'
+import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot, UrlTree } from '@angular/router'
+import { Observable, of } from 'rxjs'
+import { Curso } from '../cursos'
+import { CursosService } from '../cursos.service'
 
 @Injectable({
   providedIn: 'root'
@@ -12,13 +12,13 @@ export class CursoResolverGuard implements Resolve<Curso> {
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot):
     Observable<Curso> {
     if (route.params && route.params['id']) {
-      return this.service.getById(route.params['id']);
+      return this.service.getById(route.params['id'])
     }
     const curso: Curso = {
       id: null,
       nome: null
     }
-    return of(curso);
+    return of(curso)
   }
 
 

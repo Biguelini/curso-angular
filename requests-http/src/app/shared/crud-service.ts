@@ -1,5 +1,5 @@
-import { HttpClient } from '@angular/common/http';
-import { delay, tap, take } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http'
+import { delay, tap, take } from 'rxjs/operators'
 
 export class CrudService<T> {
 
@@ -10,31 +10,31 @@ export class CrudService<T> {
       .pipe(
         delay(2000),
         tap(console.log)
-      );
+      )
   }
 
   loadByID(id: any) {
-    return this.http.get<T>(`${this.API_URL}/${id}`).pipe(take(1));
+    return this.http.get<T>(`${this.API_URL}/${id}`).pipe(take(1))
   }
 
   private create(record: T) {
-    return this.http.post(this.API_URL, record).pipe(take(1));
+    return this.http.post(this.API_URL, record).pipe(take(1))
   }
 
   private update(record: T) {
     return this.http.put(`${this.API_URL}/${record['id' as keyof T]
-      }`, record).pipe(take(1));
+      }`, record).pipe(take(1))
   }
 
   save(record: T) {
     const id = record['id' as keyof T]
     if (id) {
-      return this.update(record);
+      return this.update(record)
     }
-    return this.create(record);
+    return this.create(record)
   }
 
   remove(id: any) {
-    return this.http.delete(`${this.API_URL} /${id}`).pipe(take(1));
+    return this.http.delete(`${this.API_URL} /${id}`).pipe(take(1))
   }
 }
